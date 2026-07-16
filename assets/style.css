@@ -104,10 +104,13 @@ h1, h2, h3 { line-height: 1.2; letter-spacing: -0.01em; }
   border-radius: var(--radius); padding: 26px; box-shadow: var(--shadow);
 }
 .avatar {
-  width: 92px; height: 92px; border-radius: 50%;
+  width: 104px; height: 104px; border-radius: 50%;
+  object-fit: cover;                       /* crop photo to the circle    */
+  object-position: center 30%;             /* bias toward the face        */
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: #fff; display: grid; place-items: center;
   font-weight: 800; font-size: 1.9rem; letter-spacing: .02em; margin-bottom: 18px;
+  border: 3px solid var(--surface); box-shadow: var(--shadow);
 }
 .quickfacts { display: grid; gap: 12px; }
 .quickfacts div { font-size: .95rem; }
