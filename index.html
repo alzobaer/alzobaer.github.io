@@ -1,39 +1,247 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home</title>
-    <link rel="icon" href="images/favicon.png" type="image/x-icon">
-    <!-- font awesome cdn link  -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
-    <!-- custom css file link -->
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>AL Zobaer — Plant Phenotyping &amp; 3D Gaussian Splatting</title>
+  <meta name="description" content="AL Zobaer — M2 researcher at the Mineno Laboratory, Shizuoka University. Scale-invariant 3D plant phenotyping, 3D Gaussian Splatting, and autonomous agricultural robotics." />
+  <meta name="author" content="AL Zobaer" />
+
+  <!-- Open Graph (nice link previews) -->
+  <meta property="og:title" content="AL Zobaer — Plant Phenotyping & 3D Gaussian Splatting" />
+  <meta property="og:description" content="M2 researcher at the Mineno Laboratory, Shizuoka University. Scale-invariant 3D phenotyping and autonomous agricultural robotics." />
+  <meta property="og:type" content="website" />
+
+  <!-- Leaf favicon (inline SVG, no external file needed) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ctext y='26' font-size='26'%3E%F0%9F%8C%B1%3C/text%3E%3C/svg%3E" />
+
+  <link rel="stylesheet" href="assets/style.css" />
+  <!-- Graceful fallback: if JS is off, show all content (no reveal animation). -->
+  <noscript><style>.reveal{opacity:1 !important;transform:none !important;}</style></noscript>
 </head>
 <body>
-    <!-- navbar section -->
-    <nav class="navbar">
-        <a href="index.html"> <i class="fa-solid fa-house"></i> <span>Home</span> </a>
-        <a href="about.html"> <i class="fa-solid fa-address-card"></i> <span>About</span> </a>
-        <a href="portfolio.html"> <i class="fa-solid fa-briefcase"></i> <span>Portfolio</span> </a>
-        <a href="blogs.html"> <i class="fa-solid fa-blog"></i> <span>Blogs</span> </a>
-        <a href="contact.html"> <i class="fa-solid fa-address-book"></i> <span>Contact</span> </a>
-    </nav>
-    
-    <section class="home">
+  <!-- ===================== NAV ===================== -->
+  <header class="nav" id="nav">
+    <div class="wrap nav-inner">
+      <a class="brand" href="#top">AL&nbsp;Zobaer</a>
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#research">Research</a>
+        <a href="#publications">Publications</a>
+        <a href="#highlights">Highlights</a>
+        <a href="#contact">Contact</a>
+      </nav>
+      <button id="themeToggle" class="theme-btn" aria-label="Toggle dark mode" title="Toggle theme">🌙</button>
+    </div>
+  </header>
 
-        <div class="image">
-            <img src="images/dp.png" alt="">
+  <!-- ===================== HERO ===================== -->
+  <section id="top" class="hero">
+    <div class="wrap hero-inner">
+      <div class="hero-text reveal">
+        <p class="eyebrow">M2 Researcher · Agricultural AI &amp; Robotics</p>
+        <h1>AL Zobaer</h1>
+        <p class="lead">
+          I build low-cost, autonomous systems for <strong>time-series crop
+          monitoring</strong> in greenhouses — combining agricultural robotics,
+          3D reconstruction, and <strong>3D Gaussian Splatting</strong> to make
+          plant phenotyping reliable and accessible.
+        </p>
+        <p class="affil">
+          Mineno Laboratory · Graduate School of Science and Technology ·
+          <span class="nowrap">Shizuoka University</span>
+        </p>
+        <div class="cta">
+          <a class="btn primary" href="#publications">View Publications</a>
+          <a class="btn" href="mailto:alzobaer1998@gmail.com">Get in touch</a>
         </div>
+        <ul class="social" aria-label="Profiles">
+          <!-- EDIT: replace # with your real profile URLs -->
+          <li><a href="mailto:alzobaer1998@gmail.com">Email</a></li>
+          <li><a href="https://github.com/alzobaer" rel="noopener">GitHub</a></li>
+          <li><a href="#" data-todo="scholar" rel="noopener">Google&nbsp;Scholar</a></li>
+          <li><a href="#" data-todo="orcid" rel="noopener">ORCID</a></li>
+          <li><a href="#" data-todo="linkedin" rel="noopener">LinkedIn</a></li>
+        </ul>
+      </div>
 
-        <div class="content">
-            <h3>Hi, I am Al Zobaer</h3>
-            <span>Front-end Developer</span>
-            <p>This is my official portfolio Website to showes all
-                details and work experiences on web development.</p>
-            <a href="about.html" class="btn">About Me <i class="fa-solid fa-user"></i> </a>
+      <div class="hero-card reveal">
+        <!-- EDIT: to use your photo, replace this <div> with: <img class="avatar" src="assets/dp.png" alt="AL Zobaer"> -->
+        <div class="avatar" role="img" aria-label="AL Zobaer">AZ</div>
+        <div class="quickfacts">
+          <div><span>Focus</span>Scale-invariant 3D phenotyping</div>
+          <div><span>Methods</span>3DGS · SfM · Autonomous UGV</div>
+          <div><span>Field</span>Precision agriculture</div>
+          <div><span>Based in</span>Shizuoka, Japan</div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <main>
+    <!-- ===================== ABOUT ===================== -->
+    <section id="about" class="section">
+      <div class="wrap">
+        <h2 class="section-title reveal">About</h2>
+        <div class="about-grid">
+          <div class="reveal">
+            <p>
+              I am a master's (M2) student in the Mineno Laboratory at Shizuoka
+              University, working at the intersection of <strong>robotics,
+              computer vision, and precision agriculture</strong>. My research
+              asks a deceptively simple question: how can a grower track how a
+              crop is growing, reliably, across an entire season, without
+              expensive sensors or manual labour?
+            </p>
+            <p>
+              My thesis, <em>“Autonomous Data Acquisition and Scale-Invariant
+              Phenotyping for Time-Series Crop Monitoring in Greenhouse
+              Environments,”</em> tackles this from both ends: an autonomous,
+              self-charging ground vehicle that captures consistent multi-view
+              video, and a measurement method that extracts plant traits in
+              <strong>render-space</strong>, where per-session scale ambiguity
+              cancels by construction — no calibration targets required.
+            </p>
+            <p>
+              The work has been validated over a full 49-day crop cycle in a
+              real commercial greenhouse and disseminated across three
+              peer-reviewed venues.
+            </p>
+          </div>
+          <aside class="about-side reveal">
+            <h3>Currently</h3>
+            <ul class="tick">
+              <li>Finalising my master's thesis (2026)</li>
+              <li>Journal manuscript under review (COMPAG)</li>
+              <li>Extending to 4D Gaussian Splatting for dynamic growth</li>
+            </ul>
+          </aside>
+        </div>
+      </div>
     </section>
-    
+
+    <!-- ===================== RESEARCH ===================== -->
+    <section id="research" class="section alt">
+      <div class="wrap">
+        <h2 class="section-title reveal">Research Interests</h2>
+        <div class="cards">
+          <article class="card reveal">
+            <div class="card-ic">📐</div>
+            <h3>Scale-Invariant Phenotyping</h3>
+            <p>Measuring plant traits in normalized image-space, where
+               perspective projection cancels the per-session scale ambiguity
+               of Structure-from-Motion — comparable measurements across dates
+               with no calibration targets.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-ic">🌐</div>
+            <h3>3D Gaussian Splatting</h3>
+            <p>High-fidelity, real-time neural rendering of crops for
+               non-destructive trait extraction, and extensions toward 4D
+               (temporal) representations of plant growth.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-ic">🤖</div>
+            <h3>Autonomous Agricultural Robotics</h3>
+            <p>Low-cost, self-charging UGVs with vision-based navigation and
+               autonomous docking for operator-free, repeatable data
+               acquisition in working greenhouses.</p>
+          </article>
+          <article class="card reveal">
+            <div class="card-ic">📈</div>
+            <h3>Time-Series Crop Monitoring</h3>
+            <p>Longitudinal analysis of growth trends, management-event
+               detection, and environmental robustness for practical,
+               data-driven greenhouse cultivation.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PUBLICATIONS ===================== -->
+    <section id="publications" class="section">
+      <div class="wrap">
+        <h2 class="section-title reveal">Selected Publications</h2>
+        <ol class="pubs">
+          <li class="pub reveal">
+            <div class="pub-badge review">Journal · under review</div>
+            <div class="pub-body">
+              <h3>Scale-Invariant Render-Space Phenotyping for Time-Series Crop
+                  Monitoring with 3D Gaussian Splatting</h3>
+              <p class="pub-authors">AL Zobaer, et al.</p>
+              <p class="pub-venue">Computers and Electronics in Agriculture
+                 (COMPAG) — under review, 2026</p>
+              <p class="pub-note">2.86× improvement in cross-session measurement
+                 stability (CV 28.0% → 9.8%); validated over 49 days in a
+                 commercial greenhouse.</p>
+            </div>
+          </li>
+          <li class="pub reveal">
+            <div class="pub-badge conf">Conference</div>
+            <div class="pub-body">
+              <h3>Multi-Viewpoint Autonomous Capture Platform for 3D
+                  Reconstruction in Greenhouse Environments</h3>
+              <p class="pub-authors">AL Zobaer, et al.</p>
+              <p class="pub-venue">ISFAR-SU 2026</p>
+            </div>
+          </li>
+          <li class="pub reveal">
+            <div class="pub-badge conf">Conference</div>
+            <div class="pub-body">
+              <h3>A Low-Cost Autonomous UGV with Self-Charging Capability for
+                  Efficient Greenhouse Monitoring</h3>
+              <p class="pub-authors">AL Zobaer, et al.</p>
+              <p class="pub-venue">IEEE GCCE 2025, Osaka, Japan</p>
+              <p class="pub-note">100% autonomous docking success; direct-contact
+                 charging 58.4% faster than wireless alternatives.</p>
+            </div>
+          </li>
+        </ol>
+        <p class="pub-foot reveal">
+          <!-- EDIT: link your Scholar profile for the full list -->
+          Full list on <a href="#" data-todo="scholar">Google&nbsp;Scholar</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===================== HIGHLIGHTS ===================== -->
+    <section id="highlights" class="section alt">
+      <div class="wrap">
+        <h2 class="section-title reveal">Highlights</h2>
+        <div class="stats">
+          <div class="stat reveal"><b>2.86×</b><span>measurement stability gain</span></div>
+          <div class="stat reveal"><b>49&nbsp;days</b><span>real-greenhouse validation</span></div>
+          <div class="stat reveal"><b>&lt;&nbsp;$3k</b><span>open, autonomous platform</span></div>
+          <div class="stat reveal"><b>3</b><span>peer-reviewed venues</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== CONTACT ===================== -->
+    <section id="contact" class="section">
+      <div class="wrap contact">
+        <h2 class="section-title reveal">Get in touch</h2>
+        <p class="reveal">
+          I'm always happy to talk about plant phenotyping, 3D reconstruction,
+          or agricultural robotics — for collaboration, PhD opportunities, or
+          just to compare notes.
+        </p>
+        <div class="cta reveal">
+          <a class="btn primary" href="mailto:alzobaer1998@gmail.com">alzobaer1998@gmail.com</a>
+          <a class="btn" href="https://github.com/alzobaer" rel="noopener">github.com/alzobaer</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="wrap footer-inner">
+      <span>© <span id="year"></span> AL Zobaer</span>
+      <span>Mineno Lab · Shizuoka University</span>
+      <a href="#top">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script src="assets/script.js"></script>
 </body>
 </html>
