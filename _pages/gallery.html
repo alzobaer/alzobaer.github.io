@@ -1,0 +1,53 @@
+---
+layout: archive
+title: "Gallery"
+permalink: /gallery/
+author_profile: true
+---
+
+{% include base_path %}
+
+<p>Selected visuals from my research in scale-invariant 3D plant phenotyping,
+3D Gaussian Splatting, and autonomous agricultural robotics.</p>
+
+<style>
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 1.25em;
+    margin-top: 1.5em;
+  }
+  .gallery-card {
+    border: 1px solid rgba(0,0,0,0.08);
+    border-radius: 6px;
+    overflow: hidden;
+    background: rgba(0,0,0,0.015);
+  }
+  .gallery-card a { display: block; }
+  .gallery-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+  }
+  .gallery-caption { padding: 0.6em 0.8em 0.9em; }
+  .gallery-caption .g-title { font-weight: 700; font-size: 0.95em; display: block; margin-bottom: 0.2em; }
+  .gallery-caption .g-desc { font-size: 0.82em; opacity: 0.8; line-height: 1.35; }
+  @media (prefers-color-scheme: dark) {
+    .gallery-card { border-color: rgba(255,255,255,0.12); background: rgba(255,255,255,0.03); }
+  }
+</style>
+
+<div class="gallery-grid">
+  {% for item in site.data.gallery %}
+  <figure class="gallery-card">
+    <a href="{{ item.image | prepend: base_path }}" title="{{ item.title }}">
+      <img src="{{ item.image | prepend: base_path }}" alt="{{ item.title }}" loading="lazy">
+    </a>
+    <figcaption class="gallery-caption">
+      <span class="g-title">{{ item.title }}</span>
+      <span class="g-desc">{{ item.caption }}</span>
+    </figcaption>
+  </figure>
+  {% endfor %}
+</div>

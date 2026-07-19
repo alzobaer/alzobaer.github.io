@@ -1,0 +1,18 @@
+# Gallery items. To add an image: upload it to images/gallery/ then add a block below.
+#   - image:   /images/gallery/your-file.jpg
+#     title:   Short title
+#     caption: One line of context (what it shows, which project/paper)
+# Keep captions research-focused, and make sure greenhouse/field photos show no
+# company names, site signage, or location identifiers.
+
+- image: /images/gallery/gallery-1.jpg
+  title: 3D Gaussian Splatting Reconstruction
+  caption: High-fidelity 3DGS reconstruction of a greenhouse crop used for render-space phenotyping.
+
+- image: /images/gallery/gallery-2.jpg
+  title: Autonomous UGV Platform
+  caption: Low-cost, self-charging ground vehicle for operator-free multi-view data acquisition.
+
+- image: /images/gallery/gallery-3.jpg
+  title: Greenhouse Phenotyping
+  caption: Time-series crop monitoring and trait measurement over a full 49-day growth cycle.
