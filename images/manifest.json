@@ -1,0 +1,19 @@
+{
+	"name": "AL Zobaer",
+	"short_name": "AL Zobaer",
+	"description": "AL Zobaer — M2 researcher at the Mineno Laboratory, Shizuoka University: scale-invariant 3D plant phenotyping, 3D Gaussian Splatting, and autonomous agricultural robotics.",
+	"start_url": "/",
+	"lang": "en-US",
+	"icons": [
+		{
+			"src": "/images/favicon-192x192.png",
+			"sizes": "192x192",
+			"type": "image/png"
+		},
+		{
+			"src": "/images/favicon-512x512.png",
+			"sizes": "512x512",
+			"type": "image/png"
+		}
+	]
+}
