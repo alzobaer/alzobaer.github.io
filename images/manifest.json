@@ -1,9 +1,13 @@
+---
+layout: none
+permalink: /images/manifest.json
+---
 {
-	"name": "AL Zobaer",
-	"short_name": "AL Zobaer",
-	"description": "AL Zobaer — M2 researcher at the Mineno Laboratory, Shizuoka University: scale-invariant 3D plant phenotyping, 3D Gaussian Splatting, and autonomous agricultural robotics.",
-	"start_url": "/",
-	"lang": "en-US",
+	"name": {{ site.title | jsonify }},
+	"short_name": {{ site.name | jsonify }},
+	"description": {{ site.description | jsonify }},
+	"start_url": "{{ site.baseurl | default: '/' }}",
+	"lang": {{ site.locale | default: "en" | jsonify }},
 	"icons": [
 		{
 			"src": "/images/favicon-192x192.png",
