@@ -5,14 +5,22 @@
 # Keep captions research-focused, and make sure greenhouse/field photos show no
 # company names, site signage, or location identifiers.
 
-- image: /images/gallery/gallery-1.jpg
-  title: 3D Gaussian Splatting Reconstruction
-  caption: High-fidelity 3DGS reconstruction of a greenhouse crop used for render-space phenotyping.
-
-- image: /images/gallery/gallery-2.jpg
+- image: /images/gallery/ugv-platform.jpg
   title: Autonomous UGV Platform
-  caption: Low-cost, self-charging ground vehicle for operator-free multi-view data acquisition.
+  caption: Low-cost, self-charging tracked ground vehicle for operator-free multi-view data acquisition (IEEE GCCE 2025).
 
-- image: /images/gallery/gallery-3.jpg
-  title: Greenhouse Phenotyping
-  caption: Time-series crop monitoring and trait measurement over a full 49-day growth cycle.
+- image: /images/gallery/docking-station.jpg
+  title: AprilTag Self-Charging Dock
+  caption: Visual-marker docking station enabling 100% autonomous docking and direct-contact recharging.
+
+- image: /images/gallery/3dgs-reconstruction.jpg
+  title: 3D Gaussian Splatting Reconstruction
+  caption: Ground truth vs. 3DGS reconstruction of a held-out view on the simulation testbed.
+
+- image: /images/gallery/phenotyping-designspace.jpg
+  title: "Render-Space Phenotyping: Design Space"
+  caption: Positioning the approach — marker-free, temporally consistent trait measurement using only commodity sensors.
+
+- image: /images/gallery/key-results.jpg
+  title: "Key Result: 2.9× Cross-Session Stability"
+  caption: Render-space measurement cuts cross-session variability from CV 28.0% to 9.8% across a 49-day crop cycle.
