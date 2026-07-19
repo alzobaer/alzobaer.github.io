@@ -68,6 +68,18 @@
 .page__footer-copyright {
   font-family: $global-font-family;
   font-size: $type-size-7;
+
+  /* single row: identity on the left, last-updated on the right */
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 0.25em 1em;
+}
+
+.page__footer-sep {
+  padding: 0 0.6em;
+  opacity: 0.45;
 }
 
 .page__footer-follow {
