@@ -44,3 +44,4 @@ Publications
 Awards and honors
 ======
 * Asia Bridge Program (ABP) Scholarship, 2024
+* Japan Student Services Organization (JASSO) Scholarship
