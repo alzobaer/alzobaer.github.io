@@ -3,4 +3,27 @@
 <!-- Support for MathJax -->
 <script id="MathJax-script" defer src="https://cdn.jsdelivr.net/npm/mathjax@4.0.0/tex-mml-chtml.js"></script>
 
+<!-- Click-to-copy for the sidebar Email link (keeps mailto: working too) -->
+<style>
+  .email-copied { margin-left: .5em; font-size: .8em; font-weight: 600; color: #2a9d8f; opacity: 0; transition: opacity .15s ease; }
+  .email-copied.show { opacity: 1; }
+</style>
+<script>
+(function () {
+  document.querySelectorAll('.js-email-copy').forEach(function (link) {
+    link.addEventListener('click', function () {
+      var email = link.getAttribute('data-email');
+      if (!email || !navigator.clipboard) return;   // no clipboard API: mailto still fires
+      navigator.clipboard.writeText(email).then(function () {
+        var msg = link.parentNode.querySelector('.email-copied');
+        if (!msg) return;
+        msg.textContent = 'Copied!';
+        msg.classList.add('show');
+        setTimeout(function () { msg.classList.remove('show'); }, 1600);
+      }).catch(function () {});
+    });
+  });
+})();
+</script>
+
 <!-- end custom footer snippets -->
