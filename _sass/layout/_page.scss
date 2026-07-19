@@ -48,6 +48,43 @@
   font-size: $type-size-4;
 }
 
+/* language switcher shown above translated posts */
+.lang-switcher {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin: 0 0 1.5em;
+  font-family: $sans-serif-narrow;
+  font-size: $type-size-6;
+}
+
+.lang-switcher__item {
+  padding: 0.25em 0.75em;
+  border: 1px solid var(--global-border-color);
+  border-radius: 999px;
+  color: var(--global-text-color-light);
+  text-decoration: none;
+  line-height: 1.6;
+
+  &:hover {
+    border-color: var(--global-link-color);
+    color: var(--global-link-color);
+    text-decoration: none;
+  }
+
+  &.is-current {
+    background-color: var(--global-link-color);
+    border-color: var(--global-link-color);
+    color: #fff;
+  }
+
+  /* language this post has not been translated into */
+  &.is-missing {
+    opacity: 0.4;
+    cursor: default;
+  }
+}
+
 .page__content {
 
   h2 {

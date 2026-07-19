@@ -1,4 +1,6 @@
 ---
+lang: en
+translation_key: phenotyping-intro
 title: "What is plant phenotyping?"
 date: 2026-07-20
 permalink: /posts/2026/07/what-is-plant-phenotyping/

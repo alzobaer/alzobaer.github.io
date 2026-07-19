@@ -359,3 +359,14 @@ compress_html:
   clippings: all
   ignore:
     envs: development
+
+# Languages offered by the post language switcher, in display order.
+# The first entry is the default. Adding a language here makes the switcher
+# show it; a post joins a language group via `translation_key` in front matter.
+languages:
+  - id: en
+    label: "English"
+  - id: bn
+    label: "বাংলা"
+  - id: ja
+    label: "日本語"

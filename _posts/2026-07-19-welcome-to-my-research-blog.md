@@ -1,4 +1,6 @@
 ---
+lang: en
+translation_key: welcome
 title: "Welcome to my research blog"
 date: 2026-07-19
 permalink: /posts/2026/07/welcome-to-my-research-blog/

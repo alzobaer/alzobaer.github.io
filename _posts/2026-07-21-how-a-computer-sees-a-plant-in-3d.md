@@ -1,4 +1,6 @@
 ---
+lang: en
+translation_key: photos-to-3d
 title: "How a computer sees a plant in 3D"
 date: 2026-07-21
 permalink: /posts/2026/07/how-a-computer-sees-a-plant-in-3d/

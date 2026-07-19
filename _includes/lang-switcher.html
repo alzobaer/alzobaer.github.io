@@ -1,0 +1,32 @@
+{% comment %}
+  Language switcher for posts.
+
+  A post joins a translation group by declaring the same `translation_key` in
+  its front matter, plus its own `lang` (en / bn / ja). Posts without a
+  translation_key render nothing, so untranslated posts are unaffected.
+
+  No plugin is involved: this is plain Liquid over site.posts, which works
+  under the GitHub Pages classic build.
+{% endcomment %}
+
+{% if page.translation_key %}
+  {% assign current_lang = page.lang | default: 'en' %}
+  {% assign siblings = site.posts | where: "translation_key", page.translation_key %}
+
+  {% if siblings.size > 1 %}
+    <nav class="lang-switcher" aria-label="Language">
+      {% for code in site.languages %}
+        {% assign match = siblings | where: "lang", code.id | first %}
+        {% if match %}
+          {% if code.id == current_lang %}
+            <span class="lang-switcher__item is-current" aria-current="true" lang="{{ code.id }}">{{ code.label }}</span>
+          {% else %}
+            <a class="lang-switcher__item" href="{{ match.url | relative_url }}" lang="{{ code.id }}" hreflang="{{ code.id }}">{{ code.label }}</a>
+          {% endif %}
+        {% else %}
+          <span class="lang-switcher__item is-missing" title="Not available in this language" lang="{{ code.id }}">{{ code.label }}</span>
+        {% endif %}
+      {% endfor %}
+    </nav>
+  {% endif %}
+{% endif %}
