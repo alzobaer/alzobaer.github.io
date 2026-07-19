@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img"
+     aria-label="Three stages: photograph a plant from many positions, match the same points across photos, recover a 3D point cloud.">
+  <rect width="900" height="300" rx="10" fill="#f7f9fb"/>
+
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+
+    <!-- ============ 1. photograph from many angles ============ -->
+    <rect x="24" y="40" width="250" height="180" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
+
+    <!-- plant in the middle -->
+    <path d="M 137,168 L 163,168 L 158,192 L 142,192 Z" fill="#c98a5b"/>
+    <line x1="150" y1="168" x2="150" y2="118" stroke="#3d7a4f" stroke-width="4"/>
+    <path d="M 118,138 Q 136,120 152,132 Q 134,148 118,138 Z" fill="#4fa06a"/>
+    <path d="M 182,128 Q 164,110 148,124 Q 166,140 182,128 Z" fill="#4fa06a"/>
+    <circle cx="150" cy="114" r="7" fill="#5fb079"/>
+
+    <!-- camera positions on an arc -->
+    <circle cx="66"  cy="140" r="9" fill="#44506b"/>
+    <circle cx="86"  cy="90"  r="9" fill="#44506b"/>
+    <circle cx="150" cy="68"  r="9" fill="#44506b"/>
+    <circle cx="214" cy="90"  r="9" fill="#44506b"/>
+    <circle cx="234" cy="140" r="9" fill="#44506b"/>
+    <!-- sight lines -->
+    <line x1="66"  y1="140" x2="140" y2="140" stroke="#aab6c2" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="86"  y1="90"  x2="142" y2="126" stroke="#aab6c2" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="150" y1="68"  x2="150" y2="104" stroke="#aab6c2" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="214" y1="90"  x2="158" y2="126" stroke="#aab6c2" stroke-width="1" stroke-dasharray="3 3"/>
+    <line x1="234" y1="140" x2="160" y2="140" stroke="#aab6c2" stroke-width="1" stroke-dasharray="3 3"/>
+
+    <text x="149" y="243" font-size="16" font-weight="600" fill="#2f4858">1. Walk around it</text>
+    <text x="149" y="264" font-size="13" fill="#6b7a89">photos from many positions</text>
+
+    <line x1="282" y1="130" x2="306" y2="130" stroke="#8a99a8" stroke-width="2"/>
+    <polygon points="316,130 304,124 304,136" fill="#8a99a8"/>
+
+    <!-- ============ 2. match the same points ============ -->
+    <rect x="322" y="40" width="250" height="180" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
+
+    <!-- two photo frames -->
+    <rect x="345" y="66" width="94" height="82" rx="4" fill="#eef2f6" stroke="#c9d5e0" stroke-width="1.2"/>
+    <rect x="455" y="86" width="94" height="82" rx="4" fill="#eef2f6" stroke="#c9d5e0" stroke-width="1.2"/>
+
+    <!-- matched features -->
+    <circle cx="372" cy="92"  r="4" fill="#d99a2b"/>
+    <circle cx="399" cy="118" r="4" fill="#2f8f5b"/>
+    <circle cx="418" cy="99"  r="4" fill="#4a7fd4"/>
+    <circle cx="482" cy="112" r="4" fill="#d99a2b"/>
+    <circle cx="509" cy="138" r="4" fill="#2f8f5b"/>
+    <circle cx="528" cy="119" r="4" fill="#4a7fd4"/>
+    <!-- correspondence lines -->
+    <line x1="372" y1="92"  x2="482" y2="112" stroke="#d99a2b" stroke-width="1.2"/>
+    <line x1="399" y1="118" x2="509" y2="138" stroke="#2f8f5b" stroke-width="1.2"/>
+    <line x1="418" y1="99"  x2="528" y2="119" stroke="#4a7fd4" stroke-width="1.2"/>
+
+    <text x="447" y="243" font-size="16" font-weight="600" fill="#2f4858">2. Find what repeats</text>
+    <text x="447" y="264" font-size="13" fill="#6b7a89">the same speck, seen twice</text>
+
+    <line x1="580" y1="130" x2="604" y2="130" stroke="#8a99a8" stroke-width="2"/>
+    <polygon points="614,130 602,124 602,136" fill="#8a99a8"/>
+
+    <!-- ============ 3. point cloud ============ -->
+    <rect x="620" y="40" width="256" height="180" rx="10" fill="#eaf5ee" stroke="#2f8f5b" stroke-width="2"/>
+
+    <g fill="#2f8f5b">
+      <circle cx="748" cy="80" r="3.4"/><circle cx="731" cy="93" r="3.4"/><circle cx="765" cy="92" r="3.4"/>
+      <circle cx="722" cy="108" r="3.4"/><circle cx="748" cy="104" r="3.4"/><circle cx="774" cy="107" r="3.4"/>
+      <circle cx="736" cy="120" r="3.4"/><circle cx="761" cy="121" r="3.4"/><circle cx="748" cy="133" r="3.4"/>
+      <circle cx="712" cy="122" r="3"/><circle cx="784" cy="121" r="3"/>
+      <circle cx="727" cy="139" r="3"/><circle cx="769" cy="140" r="3"/>
+    </g>
+    <g fill="#c98a5b">
+      <circle cx="733" cy="158" r="3.2"/><circle cx="748" cy="162" r="3.2"/><circle cx="763" cy="158" r="3.2"/>
+      <circle cx="740" cy="172" r="3"/><circle cx="757" cy="172" r="3"/>
+    </g>
+
+    <text x="748" y="243" font-size="16" font-weight="600" fill="#1f6b42">3. A cloud of points</text>
+    <text x="748" y="264" font-size="13" fill="#3d6b52">shape recovered, size unknown</text>
+  </g>
+</svg>
