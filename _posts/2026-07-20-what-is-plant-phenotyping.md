@@ -92,6 +92,15 @@ centimetre is.
 Which means the measurements drift between sessions, and you are back to noise
 swamping signal.
 
+<figure>
+  <img src="/images/gallery/key-results.jpg" alt="Four panels comparing plant height measured from 3D geometry against height measured in render-space over a growing season, with coefficient of variation dropping from 28.0% to 9.8%.">
+  <figcaption>The problem and the fix, measured over one crop cycle. Panel (a) is
+  plant height read straight off the 3D reconstruction: it lurches up and down
+  between sessions even though a real plant cannot shrink. Panel (b) is the same
+  plant measured in render-space, where the scale ambiguity cancels — the curve
+  becomes something you could actually track growth with.</figcaption>
+</figure>
+
 That problem — and what to do about it — is the subject of the next few posts.
 
 ---
