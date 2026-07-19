@@ -14,7 +14,7 @@ Education
 ======
 * Ph.D. in Informatics, Shizuoka University — Mineno Laboratory (planned)
 * M.S. in Informatics, Shizuoka University — Mineno Laboratory, 2026 (expected)
-* B.Sc. in [Field], [University], [Year]  <!-- EDIT: fill in your undergraduate degree -->
+* B.Sc. in Engineering, Computer Science and Engineering — University of Rajshahi, Bangladesh, 2024
 
 Research interests
 ======
