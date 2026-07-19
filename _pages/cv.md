@@ -43,4 +43,4 @@ Publications
 
 Awards and honors
 ======
-* [Add awards / scholarships here]  <!-- EDIT -->
+* Asia Bridge Program (ABP) Scholarship, 2024
