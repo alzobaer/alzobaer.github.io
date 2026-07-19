@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 250" role="img"
+     aria-label="Genotype plus environment produces phenotype.">
+  <rect width="860" height="250" rx="10" fill="#f7f9fb"/>
+
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+
+    <!-- Genotype -->
+    <rect x="30" y="55" width="220" height="130" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
+    <text x="140" y="95" font-size="21" font-weight="600" fill="#2f4858">Genotype</text>
+    <text x="140" y="126" font-size="14" fill="#5b6b7a">the genetic code,</text>
+    <text x="140" y="147" font-size="14" fill="#5b6b7a">fixed at the seed</text>
+
+    <text x="288" y="130" font-size="30" fill="#8a99a8">+</text>
+
+    <!-- Environment -->
+    <rect x="325" y="55" width="220" height="130" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
+    <text x="435" y="95" font-size="21" font-weight="600" fill="#2f4858">Environment</text>
+    <text x="435" y="126" font-size="14" fill="#5b6b7a">light, water, warmth,</text>
+    <text x="435" y="147" font-size="14" fill="#5b6b7a">pruning, disease</text>
+
+    <!-- arrow -->
+    <line x1="570" y1="120" x2="612" y2="120" stroke="#8a99a8" stroke-width="2"/>
+    <polygon points="622,120 610,114 610,126" fill="#8a99a8"/>
+
+    <!-- Phenotype -->
+    <rect x="635" y="55" width="200" height="130" rx="10" fill="#eaf5ee" stroke="#2f8f5b" stroke-width="2"/>
+    <text x="735" y="95" font-size="21" font-weight="600" fill="#1f6b42">Phenotype</text>
+    <text x="735" y="126" font-size="14" fill="#3d6b52">what the plant</text>
+    <text x="735" y="147" font-size="14" fill="#3d6b52">actually becomes</text>
+
+    <text x="430" y="222" font-size="14" font-style="italic" fill="#6b7a89">
+      The phenotype is the part a grower can influence — and the part worth measuring.
+    </text>
+  </g>
+</svg>

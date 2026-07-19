@@ -23,6 +23,12 @@ every cell. Its **phenotype** is what the plant actually becomes: how tall it
 grows, how many leaves it puts out, how much light those leaves catch, when it
 sets fruit, how it responds to a cold night or a dry week.
 
+<figure>
+  <img src="/images/blog/genotype-environment-phenotype.svg" alt="Diagram: genotype plus environment produces phenotype.">
+  <figcaption>Two plants from the same seed packet share a genotype. What they
+  become depends on everything that happens to them afterwards.</figcaption>
+</figure>
+
 The phenotype is the genotype *plus everything that happened to the plant*.
 Temperature, light, water, nutrients, pruning, disease pressure — all of it
 lands in the phenotype.
@@ -93,12 +99,12 @@ Which means the measurements drift between sessions, and you are back to noise
 swamping signal.
 
 <figure>
-  <img src="/images/gallery/key-results.jpg" alt="Four panels comparing plant height measured from 3D geometry against height measured in render-space over a growing season, with coefficient of variation dropping from 28.0% to 9.8%.">
-  <figcaption>The problem and the fix, measured over one crop cycle. Panel (a) is
-  plant height read straight off the 3D reconstruction: it lurches up and down
-  between sessions even though a real plant cannot shrink. Panel (b) is the same
-  plant measured in render-space, where the scale ambiguity cancels — the curve
-  becomes something you could actually track growth with.</figcaption>
+  <img src="/images/blog/scale-ambiguity.svg" alt="Two drawings of the same plant at different sizes, each with its height marked as an unknown number of centimetres.">
+  <figcaption>Both of these are consistent with the same set of photographs. The
+  shape is recovered perfectly; the size is anyone's guess. Rebuild the plant on
+  Tuesday and again on Friday and you may land on different answers — not
+  because the plant changed, but because nothing in an ordinary photo defines
+  how long a centimetre is.</figcaption>
 </figure>
 
 That problem — and what to do about it — is the subject of the next few posts.

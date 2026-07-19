@@ -15,11 +15,10 @@ vision, and precision agriculture** — the ideas behind the papers, things that
 did not make it into them, and lessons learned along the way.
 
 <figure>
-  <img src="/images/gallery/ugv-platform.jpg" alt="A small tracked ground vehicle in a clear plastic housing beside a transparent docking station marked with ArUco fiducial tags.">
-  <figcaption>The data-collection platform that most of this work is built on: a
-  low-cost tracked vehicle and the docking station it returns to and charges
-  from, so the same crop can be captured day after day without anyone in the
-  greenhouse.</figcaption>
+  <img src="/images/blog/measurement-pipeline.svg" alt="Four stage pipeline: photograph the plant from many angles, rebuild it in 3D, measure traits, repeat daily to build a growth curve.">
+  <figcaption>Most of what I work on is some part of this loop: photograph a
+  plant, rebuild it in 3D, measure it, and do it again tomorrow — without ever
+  cutting anything down.</figcaption>
 </figure>
 
 Some topics I hope to write about:
