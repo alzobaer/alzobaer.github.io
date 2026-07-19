@@ -13,7 +13,7 @@
   document.querySelectorAll('.js-email-copy').forEach(function (link) {
     link.addEventListener('click', function () {
       var email = link.getAttribute('data-email');
-      if (!email || !navigator.clipboard) return;   // no clipboard API: mailto still fires
+      if (!email || !navigator.clipboard) return;
       navigator.clipboard.writeText(email).then(function () {
         var msg = link.parentNode.querySelector('.email-copied');
         if (!msg) return;
