@@ -20,9 +20,13 @@ and the occasional account of something that went wrong in the greenhouse.</p>
 {% comment %}
   List only default-language posts; translations are reached from the language
   switcher on each post, so they should not appear as separate entries here.
+
+  Skipping inside the loop rather than filtering with where_exp: compound
+  `and` expressions in where_exp are rejected by the Liquid version that the
+  GitHub Pages build runs.
 {% endcomment %}
-{% assign listed_posts = site.posts | where_exp: "p", "p.lang != 'bn' and p.lang != 'ja'" %}
-{% for post in listed_posts %}
+{% for post in site.posts %}
+  {% if post.lang and post.lang != 'en' %}{% continue %}{% endif %}
   {% capture year %}{{ post.date | date: '%Y' }}{% endcapture %}
   {% if year != written_year %}
     <h2 id="{{ year | slugify }}" class="archive__subtitle">{{ year }}</h2>
