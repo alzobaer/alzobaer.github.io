@@ -1,15 +1,10 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-group :jekyll_plugins do
-  gem 'jekyll'
-  gem 'jekyll-feed'
-  gem 'jekyll-sitemap'
-  gem 'jekyll-redirect-from'
-  gem 'jemoji'
-  gem 'jekyll-gist'
-  gem 'jekyll-paginate'
-  gem 'webrick', '~> 1.8'
-end
+# GitHub Pages classic build uses the `github-pages` gem, which pins Jekyll and
+# all whitelisted plugins (jekyll-feed, jekyll-sitemap, jekyll-redirect-from,
+# jemoji, jekyll-gist, jekyll-paginate, ...) to the versions GitHub runs. Using
+# it here keeps the repo in sync with what GitHub Pages actually deploys.
+gem "github-pages", group: :jekyll_plugins
 
-# gem 'github-pages'   # commented out: conflicts with Ruby 3.2 for local builds; GitHub Pages ignores this file anyway
-gem 'connection_pool', '2.5.0'
+# Needed for `jekyll serve` on Ruby 3.x (no longer bundled with the stdlib).
+gem "webrick", "~> 1.8"
