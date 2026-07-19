@@ -33,13 +33,11 @@
 
     <!-- 3 measure -->
     <rect x="486" y="46" width="185" height="118" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
-    <g transform="translate(578,90)">
-      <line x1="-18" y1="18" x2="-18" y2="-18" stroke="#d99a2b" stroke-width="3"/>
-      <line x1="-22" y1="-18" x2="-14" y2="-18" stroke="#d99a2b" stroke-width="3"/>
-      <line x1="-22" y1="18" x2="-14" y2="18" stroke="#d99a2b" stroke-width="3"/>
-      <ellipse cx="8" cy="-6" rx="18" ry="8" fill="#4fa06a" transform="rotate(-14 8 -6)"/>
-      <ellipse cx="6" cy="12" rx="15" ry="7" fill="#5fb079" transform="rotate(12 6 12)"/>
-    </g>
+    <line x1="560" y1="108" x2="560" y2="72" stroke="#d99a2b" stroke-width="3"/>
+    <line x1="556" y1="72" x2="564" y2="72" stroke="#d99a2b" stroke-width="3"/>
+    <line x1="556" y1="108" x2="564" y2="108" stroke="#d99a2b" stroke-width="3"/>
+    <path d="M 570,86 Q 588,68 606,80 Q 588,96 570,86 Z" fill="#4fa06a"/>
+    <path d="M 572,103 Q 586,94 600,104 Q 585,113 572,103 Z" fill="#5fb079"/>
     <text x="578" y="132" font-size="15" font-weight="600" fill="#2f4858">Measure traits</text>
     <text x="578" y="151" font-size="13" fill="#6b7a89">height, leaf area</text>
 
