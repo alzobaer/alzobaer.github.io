@@ -2,7 +2,7 @@
 title: "Welcome to my research blog"
 date: 2026-07-19
 permalink: /posts/2026/07/welcome-to-my-research-blog/
-excerpt: "A short note on why I started this blog and what I plan to write about."
+excerpt: ""
 tags:
   - research
   - phenotyping
