@@ -7,7 +7,7 @@ redirect_from:
   - /about.html
 ---
 
-I am a master's (M2) student in the Mineno Laboratory at Shizuoka University, working
+I am a Graduate Research Student (Master's) in the Mineno Laboratory at Shizuoka University, working
 at the intersection of **robotics, computer vision, and precision agriculture**. My
 research asks a deceptively simple question: how can a grower track how a crop is
 growing—reliably, across an entire season—without expensive sensors or manual labour?

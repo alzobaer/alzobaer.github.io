@@ -59,6 +59,13 @@
     font-size: 1em;
   }
 
+  /* justified body copy; hyphenate so the extra word-spacing stays even */
+  p, li, dl, dd, blockquote {
+    text-align: justify;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+
   /* paragraph indents */
   p {
     margin: 0 0 $indent-var;
