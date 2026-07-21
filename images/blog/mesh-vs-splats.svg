@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 300" role="img"
+     aria-label="Two representations of the same leaf. On the left, a triangle mesh approximates it with flat facets, cutting corners at the tip and leaving a hole where photographs did not see the surface. On the right, the same leaf is built from many soft overlapping ellipses that stretch along the blade and fade out at the edges.">
+  <rect width="900" height="300" rx="10" fill="#f7f9fb"/>
+
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+
+    <rect x="24" y="42" width="414" height="222" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
+    <rect x="462" y="42" width="414" height="222" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
+
+    <text x="231" y="74" font-size="15" font-weight="600" fill="#2f4858">Mesh</text>
+    <text x="669" y="74" font-size="15" font-weight="600" fill="#2f4858">Gaussian splats</text>
+
+    <!-- the real leaf, for reference, in both panels -->
+    <path d="M 130,170 Q 200,110 320,140 Q 220,210 130,170 Z"
+          fill="none" stroke="#b7c3cf" stroke-width="1.5" stroke-dasharray="4 4"/>
+    <path d="M 568,170 Q 638,110 758,140 Q 658,210 568,170 Z"
+          fill="none" stroke="#b7c3cf" stroke-width="1.5" stroke-dasharray="4 4"/>
+
+    <!-- left: flat facets that cut every corner -->
+    <path d="M 130,170 L 170,144 L 215,130 L 265,128 L 320,140 L 270,172 L 215,192 L 170,186 Z"
+          fill="#dfeee5" stroke="#7fa890" stroke-width="1.5" stroke-linejoin="round"/>
+    <g stroke="#7fa890" stroke-width="1.2">
+      <line x1="170" y1="144" x2="170" y2="186"/>
+      <line x1="215" y1="130" x2="215" y2="192"/>
+      <line x1="265" y1="128" x2="270" y2="172"/>
+      <line x1="130" y1="170" x2="170" y2="186"/>
+      <line x1="170" y1="144" x2="215" y2="192"/>
+      <line x1="215" y1="130" x2="270" y2="172"/>
+      <line x1="265" y1="128" x2="320" y2="140"/>
+    </g>
+
+    <!-- a region no photograph resolved, filled in anyway -->
+    <path d="M 215,130 L 265,128 L 270,172 Z" fill="#ffffff" stroke="#c9556b"
+          stroke-width="1.5" stroke-dasharray="3 3"/>
+
+    <!-- right: soft anisotropic blobs -->
+    <g fill="#4fa06a" fill-opacity="0.45">
+      <ellipse cx="585" cy="168" rx="22" ry="9"  transform="rotate(-12 585 168)"/>
+      <ellipse cx="612" cy="156" rx="26" ry="11" transform="rotate(-18 612 156)"/>
+      <ellipse cx="640" cy="146" rx="28" ry="12" transform="rotate(-14 640 146)"/>
+      <ellipse cx="670" cy="140" rx="30" ry="13" transform="rotate(-8 670 140)"/>
+      <ellipse cx="700" cy="138" rx="30" ry="13" transform="rotate(-3 700 138)"/>
+      <ellipse cx="730" cy="140" rx="26" ry="12" transform="rotate(4 730 140)"/>
+      <ellipse cx="748" cy="148" rx="20" ry="10" transform="rotate(12 748 148)"/>
+      <ellipse cx="620" cy="172" rx="24" ry="10" transform="rotate(6 620 172)"/>
+      <ellipse cx="655" cy="178" rx="26" ry="11" transform="rotate(3 655 178)"/>
+      <ellipse cx="692" cy="176" rx="26" ry="11" transform="rotate(-2 692 176)"/>
+      <ellipse cx="722" cy="166" rx="24" ry="10" transform="rotate(-6 722 166)"/>
+    </g>
+    <g fill="#4fa06a" fill-opacity="0.22">
+      <ellipse cx="572" cy="172" rx="13" ry="6" transform="rotate(-10 572 172)"/>
+      <ellipse cx="762" cy="140" rx="11" ry="6" transform="rotate(18 762 140)"/>
+      <ellipse cx="644" cy="188" rx="14" ry="6" transform="rotate(2 644 188)"/>
+    </g>
+
+    <text x="231" y="236" font-size="13" fill="#6b7a89">One surface, forced to commit —</text>
+    <text x="231" y="254" font-size="13" fill="#6b7a89">flat facets, and a guess where the data ran out</text>
+
+    <text x="669" y="236" font-size="13" fill="#6b7a89">No surface at all — blobs stretch along the blade</text>
+    <text x="669" y="254" font-size="13" fill="#6b7a89">and simply fade where the evidence is thin</text>
+
+  </g>
+</svg>
