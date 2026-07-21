@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 206" role="img"
+     aria-label="The four COLMAP stages in order. One: mark the memorable spots in every photograph. Two: decide which marked spots in two different photographs are the same physical thing. Three: solve for where each camera stood and where each point sits in space. Four: straighten the lens bend so the images become simple pinhole images.">
+  <rect width="900" height="206" rx="10" fill="#f7f9fb"/>
+
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+
+    <!-- 1 features -->
+    <rect x="24" y="46" width="176" height="136" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
+    <g transform="translate(112,88)">
+      <rect x="-32" y="-24" width="64" height="48" rx="4" fill="#eef2f6" stroke="#a9b8c6" stroke-width="1.5"/>
+      <path d="M -32,14 L -12,-6 L 4,10 L 16,0 L 32,16 L 32,20 a4,4 0 0 1 -4,4 L -28,24 a4,4 0 0 1 -4,-4 Z" fill="#cfe0d5"/>
+      <g fill="none" stroke="#d99a2b" stroke-width="2">
+        <circle cx="-12" cy="-6" r="4"/><circle cx="16" cy="0" r="4"/>
+        <circle cx="4" cy="10" r="4"/><circle cx="-22" cy="6" r="3"/>
+        <circle cx="24" cy="-14" r="3"/>
+      </g>
+    </g>
+    <text x="112" y="134" font-size="13" font-weight="600" fill="#2f4858">feature_extractor</text>
+    <text x="112" y="154" font-size="12" fill="#6b7a89">mark the memorable</text>
+    <text x="112" y="170" font-size="12" fill="#6b7a89">spots in every photo</text>
+
+    <line x1="208" y1="114" x2="228" y2="114" stroke="#8a99a8" stroke-width="2"/>
+    <polygon points="238,114 226,108 226,120" fill="#8a99a8"/>
+
+    <!-- 2 matching -->
+    <rect x="246" y="46" width="176" height="136" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
+    <g transform="translate(334,88)">
+      <rect x="-42" y="-22" width="40" height="44" rx="4" fill="#eef2f6" stroke="#a9b8c6" stroke-width="1.5"/>
+      <rect x="2" y="-22" width="40" height="44" rx="4" fill="#eef2f6" stroke="#a9b8c6" stroke-width="1.5"/>
+      <g fill="#d99a2b">
+        <circle cx="-30" cy="-8" r="3.5"/><circle cx="-14" cy="4" r="3.5"/><circle cx="-24" cy="14" r="3.5"/>
+        <circle cx="16" cy="-12" r="3.5"/><circle cx="30" cy="1" r="3.5"/><circle cx="20" cy="12" r="3.5"/>
+      </g>
+      <g stroke="#6b8fb0" stroke-width="1.4">
+        <line x1="-30" y1="-8" x2="16" y2="-12"/>
+        <line x1="-14" y1="4" x2="30" y2="1"/>
+        <line x1="-24" y1="14" x2="20" y2="12"/>
+      </g>
+    </g>
+    <text x="334" y="134" font-size="13" font-weight="600" fill="#2f4858">exhaustive_matcher</text>
+    <text x="334" y="154" font-size="12" fill="#6b7a89">which spots in two photos</text>
+    <text x="334" y="170" font-size="12" fill="#6b7a89">are the same real thing?</text>
+
+    <line x1="430" y1="114" x2="450" y2="114" stroke="#8a99a8" stroke-width="2"/>
+    <polygon points="460,114 448,108 448,120" fill="#8a99a8"/>
+
+    <!-- 3 mapper -->
+    <rect x="468" y="46" width="176" height="136" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
+    <g transform="translate(556,90)">
+      <g fill="#4fa06a">
+        <circle cx="0" cy="-6" r="3.5"/><circle cx="-10" cy="2" r="3.5"/><circle cx="10" cy="1" r="3.5"/>
+        <circle cx="-3" cy="9" r="3.5"/><circle cx="6" cy="-13" r="3"/><circle cx="-9" cy="-12" r="3"/>
+      </g>
+      <g fill="none" stroke="#44506b" stroke-width="1.6">
+        <path d="M -44,-14 l 14,-7 l 0,14 Z"/>
+        <path d="M 44,-14 l -14,-7 l 0,14 Z"/>
+        <path d="M -20,26 l 3,-15 l 12,7 Z"/>
+        <path d="M 24,26 l -12,-8 l -3,15 Z"/>
+      </g>
+    </g>
+    <text x="556" y="134" font-size="13" font-weight="600" fill="#2f4858">mapper</text>
+    <text x="556" y="154" font-size="12" fill="#6b7a89">where did each camera</text>
+    <text x="556" y="170" font-size="12" fill="#6b7a89">stand, and each point sit?</text>
+
+    <line x1="652" y1="114" x2="672" y2="114" stroke="#8a99a8" stroke-width="2"/>
+    <polygon points="682,114 670,108 670,120" fill="#8a99a8"/>
+
+    <!-- 4 undistort -->
+    <rect x="690" y="46" width="186" height="136" rx="10" fill="#ffffff" stroke="#c9d5e0" stroke-width="1.5"/>
+    <g transform="translate(783,88)" fill="none" stroke="#a9b8c6" stroke-width="1.4">
+      <path d="M -46,-20 q 18,4 36,0 M -46,0 q 18,5 36,0 M -46,20 q 18,4 36,0" stroke="#c9556b"/>
+      <path d="M -46,-20 q -4,20 0,40 M -28,-18 q -3,18 0,36 M -10,-20 q 4,20 0,40" stroke="#c9556b"/>
+      <g stroke="#6b8fb0">
+        <path d="M 10,-20 h 36 M 10,0 h 36 M 10,20 h 36"/>
+        <path d="M 10,-20 v 40 M 28,-20 v 40 M 46,-20 v 40"/>
+      </g>
+    </g>
+    <text x="783" y="134" font-size="13" font-weight="600" fill="#2f4858">image_undistorter</text>
+    <text x="783" y="154" font-size="12" fill="#6b7a89">straighten the lens bend</text>
+    <text x="783" y="170" font-size="12" fill="#6b7a89">for the tools that follow</text>
+
+  </g>
+</svg>

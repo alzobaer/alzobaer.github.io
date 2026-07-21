@@ -4,7 +4,7 @@ translation_key: colmap-practice
 title: "COLMAP in practice"
 date: 2026-07-22 18:00:00 +0900
 permalink: /posts/2026/07/colmap-in-practice/
-excerpt: "Structure-from-Motion recovers camera poses and a point cloud. COLMAP is the software that actually does it — four commands, a handful of flags that matter, and the specific ways it fails on plants."
+excerpt: "Two hundred tourists photograph a statue, and from the photographs alone you can work out where each of them stood. That is Structure-from-Motion, and COLMAP is the program that does it — explained from scratch, then in practice."
 tags:
   - 3d-reconstruction
   - colmap
@@ -12,26 +12,83 @@ tags:
   - phenotyping
 ---
 
-*An aside from the main series. The
+*An aside from the main series, in two halves. The first explains what
+Structure-from-Motion and COLMAP are, assuming nothing; the second is the
+practical detail, for anyone who has to actually run the thing. If you only want
+the idea, stop after the four steps. The promised post on measuring without
+scale is still coming.*
+
+## Start with a square full of tourists
+
+Picture a statue in a city square on a busy afternoon. Two hundred people
+photograph it — from the steps, from the café terrace, close up, from across the
+road. Nobody coordinates with anybody. Afterwards, every one of those
+photographs ends up in a single folder.
+
+Now sit down and look through them. Nobody has told you anything about who stood
+where, and yet you can work a surprising amount out. This one was taken from the
+left. This one from higher up, probably from the steps. These two were taken
+almost from the same spot. You know it because you keep recognising the same
+details — a chip in the stone, a lamp post, the pattern of the paving — turning
+up in different places in different photographs.
+
+**Structure-from-Motion is a computer doing exactly that, automatically and far
+more precisely than you can.** Give it the folder and it recovers two things at
+the same time:
+
+- **where every photograph was taken from**, and
+- **the three-dimensional shape of the thing everyone was pointing at.**
+
+The name is a description of the method: it recovers *structure* — the shape —
+from *motion*, the camera moving between one shot and the next. The
 [earlier post]({{ site.baseurl }}/posts/2026/07/how-a-computer-sees-a-plant-in-3d/)
-explained Structure-from-Motion as an idea; this one is about the program that
-does it, for anyone who has to actually run it. The promised post on measuring
-without scale is still coming.*
+explains why this works at all; the short version is that it is the same trick
+your two eyes play on you every second of the day.
 
-Every 3D Gaussian Splatting pipeline I know of starts the same way: point a
-folder of photographs at **COLMAP** and wait. The point cloud that the
+Now swap the statue for a tomato plant, and the two hundred tourists for one
+person walking a slow circle around it with a phone. That is my working day, and
+the problem is identical.
+
+## COLMAP is the program that does it
+
+**COLMAP** is the open-source software package that performs
+Structure-from-Motion, released alongside a 2016 paper by Johannes Schönberger
+and Jan-Michael Frahm. It has been the default choice for about a decade. It is
+not the only option, but it is the one that everything else quietly assumes you
+used.
+
+It is not a single button. It is a handful of command-line steps that you run in
+order, each writing its results into a shared database file for the next step to
+pick up.
+
+It matters for this blog because every 3D Gaussian Splatting pipeline I know of
+begins here. The point cloud that the
 [splatting post]({{ site.baseurl }}/posts/2026/07/what-is-a-gaussian-splat/)
-took as its starting material is, in practice, COLMAP output. So is the set of
-camera poses, which matters just as much — the splat optimiser needs to know
-where each photograph was taken from before it can compare renders against it.
+treated as its raw material is, in practice, COLMAP output. So are the camera
+positions — and those matter just as much, because the splat optimiser has to
+know where a photograph was taken from before it can compare its own render
+against it.
 
-COLMAP is an open-source Structure-from-Motion and multi-view stereo package,
-and it has been the default for about a decade. It is not the only option, but
-it is the one everything else assumes.
+## The four steps, in plain words
 
-## Four commands
+<figure>
+  <img src="/images/blog/colmap-stages.svg" alt="Four stages in order: mark the memorable spots in every photo; decide which spots in two photos are the same real thing; solve for where each camera stood and each point sits; straighten the lens bend.">
+  <figcaption>Four steps, run in order. The first two look only at photographs;
+  the third is where three-dimensional geometry finally appears; the fourth is
+  housekeeping for whatever tool comes next.</figcaption>
+</figure>
 
-Stripped of the bookkeeping, my pipeline is this:
+1. **Find the memorable spots.** Go through each photograph on its own and mark
+   the places distinctive enough to be recognised again — a corner, a speckle, a
+   chip in the stone. Smooth, blank regions get nothing.
+2. **Match them up.** Take photographs two at a time and decide which marked
+   spots in one are the same physical thing as which marked spots in the other.
+3. **Solve.** Given thousands of these correspondences, work out the only
+   arrangement of cameras and 3D points that explains them all.
+4. **Tidy up.** Rewrite the photographs to remove the lens's bending of straight
+   lines, so the tools downstream can assume a simple, idealised camera.
+
+Stripped of the bookkeeping, that is these four commands:
 
 ```bash
 colmap feature_extractor \
@@ -58,15 +115,20 @@ colmap image_undistorter \
     --output_path    colmap/undistorted
 ```
 
-Four steps: find features, match them between photographs, solve for geometry,
-then rewrite the images into the clean pinhole form that downstream tools want.
-The flags are where the interesting decisions live.
+The rest of this post is about the flags, because that is where the interesting
+decisions live.
 
 ## `single_camera` — tell it what you know
 
-`--ImageReader.single_camera 1` says every image came from the same physical
-camera with the same settings, so they share one set of intrinsics: focal
-length, principal point, distortion coefficients.
+Back to the square for a moment. Two hundred tourists means two hundred
+different cameras and phones, each with its own lens, and part of the puzzle is
+working out what each lens does to the picture. But if *you* took all two hundred
+photographs yourself, on one phone, then there is only one lens to figure out —
+and saying so out loud saves an enormous amount of guessing.
+
+That is this flag. `--ImageReader.single_camera 1` declares that every image came
+from the same physical camera with the same settings, so they share one set of
+**intrinsics**: focal length, principal point, and lens distortion.
 
 If your frames were extracted from a single video, this is simply true, and
 asserting it is close to free accuracy. Instead of solving for those parameters
@@ -78,8 +140,14 @@ lie and it will quietly bend your reconstruction. It is worth being sure.
 
 ## Matching — the step that costs
 
-Feature extraction is fast and parallel. Matching is where the time goes,
-because the question "which photographs overlap?" has no cheap answer.
+Imagine being handed the two hundred photographs and asked to find every pair
+that shows the same corner of the square. Nobody labelled them. The only way to
+be certain is to hold up each photograph against every other one — and that is a
+lot of holding up.
+
+This is why matching, not feature extraction, is where the time goes. Finding
+the memorable spots in one photograph is quick and can be done for all of them
+at once. Working out *which photographs overlap* has no cheap answer.
 
 <figure>
   <img src="/images/blog/matching-strategies.svg" alt="Sixteen photographs arranged in a ring. On the left, exhaustive matching draws a line between every pair, producing a dense tangle. On the right, sequential matching connects each photograph only to its near neighbours in capture order, producing a thin band around the ring.">
@@ -118,22 +186,31 @@ image pair, triangulates points between them, then registers the remaining
 images one at a time, re-running bundle adjustment periodically to keep
 everything consistent.
 
-Two of my flags are about **triangulation angle** — the angle at the 3D point
-between the two camera rays that observe it.
+Two of my flags are about **triangulation angle**. Here is the everyday version.
+Your two eyes sit about six centimetres apart, and that gap is what lets you
+judge distance. Now imagine your eyes were only two millimetres apart. They would
+still both see the room perfectly well — but the two views would be so nearly
+identical that you would have almost no sense of what was near and what was far.
 
-`--Mapper.init_min_tri_angle=4` requires at least four degrees between the two
-cameras of the *initial* pair. A pair of nearly identical viewpoints can match
-beautifully and still say almost nothing about depth: the rays are close to
-parallel, so a small error in the image sends the intersection sliding a long
-way along the ray. Starting from that is how you get a reconstruction that looks
-plausible and is wrong.
+The angle between two viewpoints, measured at the object they are both looking
+at, is the triangulation angle, and it is exactly this: a small angle means a
+weak opinion about depth.
+
+`--Mapper.init_min_tri_angle=4` therefore requires at least four degrees between
+the two cameras of the *initial* pair — the pair COLMAP builds everything else
+on top of. Two nearly identical viewpoints can match beautifully and still say
+almost nothing about depth: the rays are close to parallel, so a small error in
+the image sends their intersection sliding a long way. Starting from that is how
+you get a reconstruction that looks plausible and is wrong.
 
 `--Mapper.filter_min_tri_angle=0.5` is the same idea applied afterwards,
 discarding points whose observations are too close to parallel to be trusted.
 
-`--Mapper.max_num_models=1` is a different kind of choice. Given photographs it
-cannot link into one consistent scene, COLMAP will happily produce two or three
-separate models. That is COLMAP being honest — the connections were not there —
+`--Mapper.max_num_models=1` is a different kind of choice. Think of a jigsaw
+where two clusters of pieces each fit together nicely, but nothing joins the two
+clusters — you finish with two islands and no way to know how they sit relative
+to each other. Given photographs it cannot link into one consistent scene,
+COLMAP will happily hand you exactly that: two or three separate models. That is COLMAP being honest — the connections were not there —
 but for my purposes a fragmented capture is a failed capture, and I would rather
 find that out immediately than discover it later in a splat that covers half a
 plant.
@@ -141,8 +218,17 @@ plant.
 ## Where it fails on plants
 
 The general advice above applies to any scene. Plants add their own problems,
-and all of them trace back to one assumption: **Structure-from-Motion assumes
-the scene is rigid and static.**
+and all of them trace back to a single assumption: **Structure-from-Motion
+assumes the scene is rigid and static.**
+
+The statue in the square is an ideal subject precisely because it does not move.
+Now imagine the tourists photographing something less cooperative — a busy
+market stall, where between one photograph and the next the crates have been
+restacked and half the produce has been sold. Recognising "the same thing" in
+two photographs stops meaning what it did, and the whole method begins to fight
+itself.
+
+A plant is a mild version of that market stall.
 
 **Foliage moves.** A greenhouse has ventilation fans, air currents, and leaves
 light enough to respond to both. Between two frames a few seconds apart, the
